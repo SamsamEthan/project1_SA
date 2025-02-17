@@ -8,7 +8,7 @@ Hello Everyone,
 
 This is a simple webpage which requires users to register (register.html) a username and a password before proceeding.
 If the user already has a account within the webpage, simply login to access the library of books. Make sure to download all required html templates within
-the templates folder in order for the webpage to fully work. 
+the templates folder and the books.csv file in order for the webpage to fully work. 
 
 To begin, run application.py through flask and go through the login page(login.html). Once inside the login page, search (search.html) for a books name, author,
 isbn code or year that it was released. Then the user will be taken to a page which will show the books details and the user is also provided a button which will allow
