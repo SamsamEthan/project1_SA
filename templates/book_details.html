@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ book.title }}</h2>
+    <p><strong>Author:</strong> {{ book.author }} | <strong>ISBN:</strong> {{ book.isbn }} | <strong>Year:</strong> {{ book.year }}</p>
+
+    <h3>Leave a Review</h3>
+    <form method="POST" class="card card-body shadow p-4">
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating (1-5):</label>
+            <select id="rating" name="rating" class="form-select" required>
+                <option value="5">5 - Excellent</option>
+                <option value="4">4 - Good</option>
+                <option value="3">3 - Average</option>
+                <option value="2">2 - Poor</option>
+                <option value="1">1 - Terrible</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="comment" class="form-label">Your Review:</label>
+            <textarea id="comment" name="comment" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Submit Review</button>
+    </form>
+
+    {% if reviews %}
+        <h3 class="mt-4">Reviews</h3>
+        <ul class="list-group mt-3">
+            {% for review in reviews %}
+                <li class="list-group-item">
+                    <strong>{{ review.username }}</strong> ({{ review.rating }} Stars)<br>
+                    <em>"{{ review.comment }}"</em>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted mt-3">No reviews yet. Be the first to review this book!</p>
+    {% endif %}
+
+    <a href="{{ url_for('search') }}" class="btn btn-secondary mt-3">Back to Search</a>
+</div>
+{% endblock %}

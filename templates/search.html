@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Search for a Book</h2>
+
+    <form method="POST" class="card card-body shadow p-4">
+        <label for="query" class="form-label">Enter Book Title, Author, ISBN, or Year:</label>
+        <input type="text" id="query" name="query" class="form-control" placeholder="e.g., The Great Gatsby, J.K. Rowling, 9780439554930, 2010" required>
+        <button type="submit" class="btn btn-primary mt-3 w-100">Search</button>
+    </form>
+
+    {% if books %}
+        <h3 class="mt-4">Search Results</h3>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.year }}</td>
+                    <td>
+                        <a href="{{ url_for('book_details', book_id=book.id) }}" class="btn btn-info btn-sm">View Book</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif request.method == "POST" %}
+        <p class="text-danger mt-3">No books found. Try another search.</p>
+    {% endif %}
+</div>
+{% endblock %}
