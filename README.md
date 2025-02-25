@@ -21,4 +21,4 @@ within the application.py file along with valid credentials to simply use the we
 
 Make sure to install all required python packages contained inside of requirements.txt using: pip install -r requirements.txt. 
 
-EDIT: This same folder is used for lab 2
+EDIT: This same repo is used for lab 2
