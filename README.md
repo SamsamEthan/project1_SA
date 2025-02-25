@@ -20,3 +20,5 @@ the user to leave a review. All the reviews, users registered and books are stor
 within the application.py file along with valid credentials to simply use the webpage.
 
 Make sure to install all required python packages contained inside of requirements.txt using: pip install -r requirements.txt. 
+
+EDIT: This same folder is used for lab 2
